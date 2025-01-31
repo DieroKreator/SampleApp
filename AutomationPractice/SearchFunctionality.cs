@@ -1,8 +1,12 @@
+using OpenQA.Selenium;
+
 namespace AutomationPractice;
 
 [TestClass]
 public class SearchFunctionality
 {
+    public IWebDriver Driver { get; private set; }
+
     [TestMethod]
     public void TestMethod1()
     {
