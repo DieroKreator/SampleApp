@@ -1,4 +1,6 @@
+using System.Reflection;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 
 namespace AutomationPractice;
 
@@ -14,5 +16,24 @@ public class SearchFunctionality
         homePage.GoTo();
         SearchPage searchPage = homePage.Search("blouse");
         Assert.IsTrue(searchPage.Contains(Item.Blouse));
+    }
+
+    [TestInitialize]
+    public void SetupForEverySingleTestMethod()
+    {
+        Driver = GetChromeDriver();
+    }
+
+    [TestCleanup]
+    public void CleanUpAfterEveryTestMethod()
+    {
+        Driver.Close();
+        Driver.Quit();
+    }
+
+    private IWebDriver GetChromeDriver()
+    {
+        var outPutDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+        return new ChromeDriver(outPutDirectory);
     }
 }
