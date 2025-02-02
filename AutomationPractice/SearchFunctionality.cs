@@ -7,9 +7,10 @@ namespace AutomationPractice;
 [TestClass]
 public class SearchFunctionality
 {
-    public IWebDriver Driver { get; private set; }
+    public IWebDriver? Driver { get; set; }
 
     [TestMethod]
+    [TestCategory("SearchingFeature")]
     public void TestMethod1()
     {
         HomePage homePage = new HomePage(Driver);
@@ -35,5 +36,6 @@ public class SearchFunctionality
     {
         var outPutDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
         return new ChromeDriver(outPutDirectory);
+        // return new ChromeDriver();
     }
 }

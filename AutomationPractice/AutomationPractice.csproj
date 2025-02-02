@@ -13,6 +13,8 @@
     <PackageReference Include="MSTest.TestFramework" Version="3.1.1"/>
     <PackageReference Include="Selenium.Support" Version="3.4.0"/>
     <PackageReference Include="Selenium.WebDriver" Version="3.4.0"/>
+    <PackageReference Include="System.Security.Permissions" Version="9.0.1"/>
+    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="132.0.6834.15900"/>
   </ItemGroup>
   <ItemGroup>
     <Using Include="Microsoft.VisualStudio.TestTools.UnitTesting"/>
