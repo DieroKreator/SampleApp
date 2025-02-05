@@ -12,7 +12,22 @@ internal class ContactUsPage : BaseApplicationPage
 
     public void GoTo()
     {
-        Driver.Navigate().GoToUrl("http://automationpractice.com/index.php?controller=contact");
+        Driver.Navigate().
+            GoToUrl("http://automationpractice.com/index.php?controller=contact");
     }
 
+    public bool IsLoaded 
+    {
+        get
+        {
+            try
+            {
+                return Driver.FindElement(By.Id("center-column")).Displayed;
+            }
+            catch (NoSuchElementException)
+            {
+                return false;
+            }
+        }
+    }
 }
