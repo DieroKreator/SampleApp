@@ -5,13 +5,15 @@ using OpenQA.Selenium.Chrome;
 namespace AutomationPractice;
 
 [TestClass]
+[TestCategory("SearchingFeature")]
 public class SearchFunctionality
 {
     public IWebDriver? Driver { get; set; }
 
     [TestMethod]
-    [TestCategory("SearchingFeature")]
-    public void TestMethod1()
+    [Description("Checks to make sure that if we search for browser, that browser comes back")]
+    [TestProperty("Author", "Diego Rojas")]
+    public void TCID1()
     {
         HomePage homePage = new HomePage(Driver);
         homePage.GoTo();
