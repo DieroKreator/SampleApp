@@ -2,21 +2,16 @@ using OpenQA.Selenium;
 
 namespace AutomationPractice;
 
-internal class SearchPage
+internal class SearchPage : BaseApplicationPage
 {
-    private IWebDriver driver;
-
-    public SearchPage(IWebDriver driver)
-    {
-        this.driver = driver;
-    }
+    public SearchPage(IWebDriver driver) : base(driver){}
 
     internal bool Contains(Item itemToCheckFor)
     {
         switch(itemToCheckFor)
         {
             case Item.Blouse:
-                return driver.FindElement(By.XPath("[@title='Blouse']")).Displayed;
+                return Driver.FindElement(By.XPath("[@title='Blouse']")).Displayed;
             default:
                 throw new ArgumentOutOfRangeException("No such item exists in this collection");
         }
