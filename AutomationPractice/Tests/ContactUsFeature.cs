@@ -1,3 +1,5 @@
+using OpenQA.Selenium;
+
 namespace AutomationPractice;
 
 public class ContactUsFeature
