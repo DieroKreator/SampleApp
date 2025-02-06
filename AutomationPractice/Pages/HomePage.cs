@@ -2,24 +2,19 @@ using OpenQA.Selenium;
 
 namespace AutomationPractice;
 
-internal class HomePage
+internal class HomePage : BaseApplicationPage
 {
-    private IWebDriver driver;
-
-    public HomePage(IWebDriver driver)
-    {
-        this.driver = driver;
-    }
+    public HomePage(IWebDriver driver) : base(driver){}
 
     internal void GoTo()
     {
-        driver.Navigate().GoToUrl("http://automationpractice.com");
+        Driver.Navigate().GoToUrl("http://automationpractice.com");
     }
 
     internal SearchPage Search(string itemToSearchFor)
     {
-        driver.FindElement(By.Id("search_query_top")).SendKeys(itemToSearchFor);
-        driver.FindElement(By.Name("submit_search")).Click();
-        return new SearchPage(driver);
+        Driver.FindElement(By.Id("search_query_top")).SendKeys(itemToSearchFor);
+        Driver.FindElement(By.Name("submit_search")).Click();
+        return new SearchPage(Driver);
     }
 }
