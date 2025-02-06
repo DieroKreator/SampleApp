@@ -4,7 +4,12 @@ namespace AutomationPractice;
 
 internal class HomePage : BaseApplicationPage
 {
-    public HomePage(IWebDriver driver) : base(driver){}
+    public HomePage(IWebDriver driver) : base(driver)
+    {
+        Slider = new Slider(Driver); 
+    }
+
+    public Slider Slider { get; internal set; } 
 
     internal void GoTo()
     {
