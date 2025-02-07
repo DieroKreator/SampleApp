@@ -16,13 +16,13 @@ internal class ContactUsPage : BaseApplicationPage
             GoToUrl("http://automationpractice.com/index.php?controller=contact");
     }
 
-    public bool IsLoaded 
+    public bool IsLoaded
     {
         get
         {
             try
             {
-                return Driver.FindElement(By.Id("center-column")).Displayed;
+                return CenterColumn.Displayed;
             }
             catch (NoSuchElementException)
             {
@@ -30,4 +30,7 @@ internal class ContactUsPage : BaseApplicationPage
             }
         }
     }
+
+    public IWebElement CenterColumn => Driver.FindElement(By.Id("center-column"));
+
 }
