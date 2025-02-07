@@ -11,4 +11,10 @@ public class Slider : BaseApplicationPage
         this.driver = driver;
     }
 
+    public object CurrentImage => Driver.FindElement(By.Id("homeslider")).GetAttribute("style");
+
+    internal void ClickNextButton()
+    {
+        throw new NotImplementedException();
+    }
 }
